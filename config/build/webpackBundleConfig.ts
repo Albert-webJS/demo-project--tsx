@@ -5,9 +5,12 @@ import { BuildOptions } from "./types/configTypes";
 import { webpackResolvers } from './webpackResolvers';
 import { webpackRules } from './webpackRules';
 import { webpackPlugins } from './webpackPlugins';
+import { webpackDevServer } from './webpackDevServer';
 
 
-export const webpackBundleConfig = ({ mode, paths }: BuildOptions): webpack.Configuration => {
+export const webpackBundleConfig = (options: BuildOptions): webpack.Configuration => {
+    const { mode, paths, isDev } = options
+
     return {
         mode: mode,
         entry: paths.entry,
@@ -20,6 +23,8 @@ export const webpackBundleConfig = ({ mode, paths }: BuildOptions): webpack.Conf
         module: {
           rules: webpackRules()
         },
-        plugins: webpackPlugins(paths.html)
+        plugins: webpackPlugins(options),
+        devtool: isDev ? 'inline-source-map' : undefined,
+        devServer: isDev ? webpackDevServer(options) : undefined,
       }
 }

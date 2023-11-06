@@ -6,9 +6,15 @@ export type BuildPaths = {
     html: string,
 }
 
-export type BuildOptions = {
+export type EnvironmentOptions = {
     mode: BuildMode,
-    paths: BuildPaths
+    port: number
+}
+ 
+export type BuildOptions = {
+    mode: BuildMode;
+    paths: BuildPaths;
+    port: number;
     isDev: boolean;
 
 }
