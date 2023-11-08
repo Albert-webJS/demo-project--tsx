@@ -1,5 +1,15 @@
 :root {
+    /* Font variables */
+    --font-family-main: 'Times New Roman', Times, serif;
+    
+    --font-size-middle: 16px;
+    --font-line-middle: 24px;
+
+    --font-size-large: 24px;
+    --font-line-large: 32px;
+
     box-sizing: border-box;
+    
 }
 
 *,
@@ -8,4 +18,8 @@
     margin: 0;
     padding: 0;
     box-sizing: inherit;
+}
+
+body {
+    font-family: var(--font-family-main);
 }
