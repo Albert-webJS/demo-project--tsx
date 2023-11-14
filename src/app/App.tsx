@@ -1,11 +1,12 @@
 import { lazy, Suspense } from 'react';
 import { Routes, Route, Link } from 'react-router-dom'
 
-import './App.css'
-import { useTheme } from './theme/useTheme';
+import { useTheme } from 'app/providers/ThemeProviders';
 
-const HomePageLazy = lazy(() => import('./pages/HomePage/HomePage'));
-const AboutPageLazy = lazy(() => import('./pages/AboutPage/AboutPage'));
+import './styles/index.css'
+
+const HomePageLazy = lazy(() => import('../pages/HomePage/HomePage'));
+const AboutPageLazy = lazy(() => import('../pages/AboutPage/AboutPage'));
 
 export const App = () => {
     const { theme, toggleTheme } = useTheme()

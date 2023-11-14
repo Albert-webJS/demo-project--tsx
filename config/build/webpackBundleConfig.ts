@@ -18,7 +18,7 @@ export const webpackBundleConfig = (options: BuildOptions): webpack.Configuratio
           path: paths.build,
           clean: true,
         },
-        resolve: webpackResolvers(),
+        resolve: webpackResolvers(options),
         module: {
           rules: webpackRules(options)
         },
