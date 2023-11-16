@@ -1,5 +1,4 @@
-import { lazy, Suspense } from 'react';
-import { Routes, Route, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import { useTheme } from 'app/providers/ThemeProviders';
 import { AppRouter } from 'app/providers/router';
