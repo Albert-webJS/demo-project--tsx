@@ -2,11 +2,10 @@ import { lazy, Suspense } from 'react';
 import { Routes, Route, Link } from 'react-router-dom'
 
 import { useTheme } from 'app/providers/ThemeProviders';
+import { AppRouter } from 'app/providers/router';
 
 import './styles/index.css'
 
-const HomePageLazy = lazy(() => import('../pages/HomePage/HomePage'));
-const AboutPageLazy = lazy(() => import('../pages/AboutPage/AboutPage'));
 
 export const App = () => {
     const { theme, toggleTheme } = useTheme()
@@ -19,12 +18,7 @@ export const App = () => {
             </header>
             <button onClick={toggleTheme}>Theme</button>
             <div>
-                <Suspense fallback="Lading...">
-                <Routes>
-                    <Route path={'/'} element={<HomePageLazy />}/>
-                    <Route path={'/about'} element={<AboutPageLazy />}/>
-                </Routes>
-                </Suspense>
+              <AppRouter />
             </div>
         </div>
     )
