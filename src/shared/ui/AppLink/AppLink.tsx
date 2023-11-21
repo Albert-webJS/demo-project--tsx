@@ -7,6 +7,15 @@ interface AppLinkProps extends LinkProps {
     theme?: "primary" | "secondary"
 }
 
-export const AppLink = ({ to, className, theme, children, ...props}: AppLinkProps) => {
-    return <Link to={to} className={cn(styles.link, styles[theme], className)} {...props}>{children}</Link>
+export const AppLink = ({ to, className, theme, children, ...props}: AppLinkProps): JSX.Element => {
+    return (
+        <Link 
+            to={to} 
+            className={cn(styles.link, className, {
+                [styles[theme]]: theme
+            })} 
+            {...props}
+    >
+        {children}
+      </Link>)
 }
