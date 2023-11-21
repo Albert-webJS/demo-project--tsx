@@ -4,6 +4,7 @@ import { useTheme } from 'app/providers/ThemeProviders';
 import { AppRouter } from 'app/providers/router';
 
 import './styles/index.css'
+import { Navbar } from 'widgets/Navbar';
 
 
 export const App = () => {
@@ -12,8 +13,7 @@ export const App = () => {
     return (
         <div className={`app ${theme}`}>
             <header>
-                <Link to={'/'} >Home</Link>
-                <Link to={'/about'} >About</Link>
+                <Navbar/>
             </header>
             <button onClick={toggleTheme}>Theme</button>
             <div>
